@@ -646,7 +646,7 @@ func (p *clientPool) getClient() (_ Client, err error) {
 
 func (p *clientPool) releaseClient(c Client) {
 	if err := p.Pool.Release(c); err != nil {
-		log.Errorw(
+		log.Debugf(
 			"Failed to release client back to pool",
 			"pool", p.slug,
 			"err", err,
